@@ -1,0 +1,88 @@
+<!-- 显示窗口 -->
+<button bindtap='ten'>10</button>
+<button bindtap='clear'>clear</button>
+<view class='input_view' style="margin-top:30rpx">
+  <scroll-view class="input_scroll" scroll-x="{{true}}" scroll-left="{{autoLeft}}" bindscroll='scrollListen' bindtap='charendtap' scroll-left="{{autoLeftOffset}}">
+    <view class='input_cbox' bindtap='tapchar'>
+      <view class='input_content'> {{Chars}}</view>
+      <view class='input_cursor_layer' style="left:{{cursor_offset}}px"></view>
+    </view>
+  </scroll-view>
+  <view>
+    <view  style="float:right;">
+      <view class="answer"> {{answer}}</view>
+    </view>
+    <view id="{{key}}" bindtap='historyDataModel' bind:longpress='historyDataInput' style="font-weight: bold;"> {{key}} : {{key_value}} </view>
+  </view>
+<!-- <view class="line"></view>
+  <view  style="float:right;">
+    <view class="answer"> {{answer}}</view>
+  </view>
+<view class="line"></view>
+  <view id="{{key}}" bindtap='historyDataModel' bind:longpress='historyDataInput' style="font-weight: bold;"> {{key}} : {{key_value}} </view> -->
+
+  <!-- <view class='answer_box'> 
+    <view class="flex  p-xs margin-bottom-sm mb-sm">
+      <view class="flex-sub padding-sm margin-xs radius" id="{{key}}" bindtap='historyDataModel' bind:longpress='historyDataInput' style="font-weight: bold;"> {{key}} : {{key_value}} </view>
+      <view class="flex-twice padding-sm margin-xs radius" style="float:right;">
+        <view class="answer"> {{answer}}</view>
+      </view>
+    </view>
+  </view> -->
+</view>
+<!-- <view class='input_view' style="margin-top:30rpx">
+  <view  style="float:right;">
+    <view class="answer"> {{answer}}</view>
+  </view>
+</view> -->
+<!-- <view class='input_view' style="margin-top:30rpx">
+  <view id="{{key}}" bindtap='historyDataModel' bind:longpress='historyDataInput' style="font-weight: bold;"> {{key}} : {{key_value}} </view>
+</view> -->
+<!-- 函数 -->
+<view class="contain">
+  <movable-area class="ma" style="margin-top:30rpx">
+    <movable-view  bindtouchend="autoMv" bindchange="moving" x="{{mvOffset}}" damping="{{100}}" inertia='{{true}}' friction="1" class="mv" direction="horizontal">
+      <view class="mvline" wx:for="{{funcBtns}}">
+        <view class="mvgrid" hover-class='funbtn-active' hover-stay-time='0' wx:for="{{item}}" wx:for-item="sitem" id="{{sitem}}" bindtap="btnTap">
+          {{sitem}} 
+        </view>
+      </view>
+    </movable-view>
+  </movable-area>
+  <!-- 键盘 -->
+  <view class="contain">
+    <view class="mvline" wx:for="{{numBtns}}">
+      <view wx:for="{{item}}" wx:for-item='sitem' >
+        <view class="mvgrid" hover-class='funbtn-active' hover-stay-time='0' id="{{sitem}}" bindtap="btnTap" >{{sitem}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 初始化提示窗框口 -->
+<view class="cu-modal {{modalName=='TipModel'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+    </view>
+    <view class="padding-xl"> 为了适配不同机型字体参数，需要进行初始化。 </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn bg-green margin-left" bindtap="init">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 历史数据窗口 -->
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+    </view>
+    <view class="padding-xl">
+      <view class="cu-item arrow" wx:for="{{varibles}}" wx:key>
+          <view class="flex-sub bg-grey padding-sm margin-xs radius" style="font-weight: bold;" id='{{item.name}}' bindtap='historyDataChoose' bindlongtap='historyDataInput'>{{item.name}} : {{item.value}}</view>
+      </view>
+    </view>
+  </view>
+</view>

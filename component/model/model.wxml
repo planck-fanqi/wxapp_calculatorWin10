@@ -1,0 +1,15 @@
+<view class="mask" bind:tap='bgClick'>
+    <view class="model" bind:tap='inClick'>
+        <view class="bg">
+            <view class="header" hover-class='button-hover' hover-stay-time='0'></view>
+            <view class="content"></view>
+        </view>
+        <view class="text">
+            <view class="header-text">提示</view>
+            <view class="content-text">正在适配机型字体</view>
+            <view class="button-text">
+                <view class="button" hover-class='button-hover' hover-stay-time='0' bind:tap='tap'>确认</view>
+            </view>
+        </view>
+    </view>
+</view>

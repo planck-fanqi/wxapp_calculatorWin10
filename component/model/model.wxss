@@ -1,0 +1,56 @@
+.mask{
+    width: 100vw; height: 100vh;
+    position: absolute; z-index: 9;
+    left: 0; top: 0; right: 0; bottom: 0;
+    display: flex; justify-content: center; align-items: center;
+}
+.model{
+    width: 60vw; height: 40vw;
+    backdrop-filter: blur(20rpx);
+    position: relative;
+}
+.bg{
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    position: absolute;
+    left: 0; top: 0;
+}
+.header{
+    width: 100%; height: 10vw;
+    opacity: .3;background: #dddddd; 
+}
+.content{
+    width: 100%; height: 30vw;
+    opacity: .1;background: #dfeef7; 
+}
+.text{
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    position: absolute; align-items: center;
+    left: 0; top: 0;
+}
+.header-text{
+    width: 100%; height: 10vw;
+    line-height: 10vw; font-size: 40rpx; text-align: center; color: #333333; font-weight: bold;
+}
+.content-text{
+    width: 60vw; height: 15vw;
+    margin-top: 2vw;
+    line-height: 10vw; font-size: 40rpx; text-align: center; color: #333333; font-weight: bold;
+}
+.button-text{
+    width: 20vw; height: 15vw;
+    padding-top: 2.5vw; padding-bottom: 2.5vw; padding-left: 20vw; padding-right: 20vw;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.button{
+    width: 100%;
+    background: #fdfdfd;
+    line-height: 12vw; font-size: 30rpx; text-align: center; color: #333333; font-weight: bold;
+}
+.button-hover{
+    border: 2rpx solid grey;
+    background: #7c7c7b; color: white;
+}
+

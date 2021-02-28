@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "sideMenu":"../../component/sideMenu/sideMenu",
+    "model":"../../component/model/model"
+  }
+}

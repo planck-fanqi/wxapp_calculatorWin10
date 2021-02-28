@@ -1,0 +1,54 @@
+<view class="calculator" bind:tap='pageClick'>
+  <image class="bg" src="../../asset/images/back2.jpg" mode='aspectFill'/>
+  <view class="mask"></view>
+  <view class="body">
+    <view class="nav">
+      <view class="icon"></view>
+      <view class="text">科学</view>
+    </view>
+    <view class="space" style="height:{{spaceHeight*5/12}}vh"></view> 
+    <view class="screen">
+      <view class="answer">{{answer}}</view>
+      <view class="space" style="height:{{spaceHeight/6}}vh"></view> 
+      <scroll-view class="input-scroll" scroll-x="{{true}}" scroll-left="{{autoLeftOffset}}" bindscroll="scrollListen" bind:tap='cursorJump'>
+        <view class='input-cbox' >
+          <view class='input-content'> {{inputs}}</view>
+          <view class='input-cursor_layer' style="right:{{cursor_offset}}px"></view>
+        </view>
+      </scroll-view>
+    </view>
+    
+    <view class="space" style="height:{{spaceHeight*5/12}}vh"></view> 
+    <view class="toolbar">
+        <view class="container">
+          <view class="back"></view>
+          <view class="drop-menu" style="overflow: {{isHistoryShow?'visible':'hidden'}};">
+            <view class="drop-btn" id="history" hover-class='drop-btn-hover' hover-stay-time='0' data-info='{{curVar}}' bindtap="historyShow" bind:longpress="historyInput">
+              <view class="text">{{curVar.key}}:{{curVar.value}}</view>
+              <view class="icon"><image src="../../asset/images/dropArrow.png" mode='aspectFit'/></view>
+            </view>
+            <view class="drop-box">
+              <view class="drop-menuItem" wx:for="{{varibles}}" hover-class='drop-item-hover' hover-stay-time='0' data-info='{{item}}' bindtap='historyChoose' bind:longpress="historyInput">{{item.key}}:{{item.value}}</view>
+            </view>
+          </view>
+        </view>
+    </view>
+    <view class="keyboard">
+      <!-- 函数 -->
+      <movable-area>
+        <movable-view damping="{{100}}" inertia='{{true}}' friction="1" class="mv" direction="horizontal" bindtouchend="autoMv" bindchange="moving" x="{{mvOffset}}">
+          <view class="grids" wx:for="{{fbtns}}">
+            <view class="grid" wx:for="{{item}}" wx:for-item="sitem" data-info='{{sitem}}' bind:tap='button'><view hover-class='grid-hover' hover-stay-time='0'>{{sitem.text}}</view></view>
+          </view>
+        </movable-view>
+      </movable-area>
+      <!-- 键盘 -->
+      <view class="grids" wx:for='{{nbtns}}'>
+        <view class="grid" wx:for="{{item}}" wx:for-item="sitem" data-info='{{sitem}}' bind:tap='button'><view hover-class='grid-hover' hover-stay-time='0'>{{sitem.text}}</view></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<sideMenu outClick='{{outClick}}'/>
+

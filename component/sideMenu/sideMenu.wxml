@@ -1,0 +1,23 @@
+<view class="menu" style="left: {{menuBias}}vw;transition-duration: {{menuDur}}ms;">
+  <view class="board" >
+    <view class="header"></view>
+    <view class="bar" hover-class="bar-hover" hover-stay-time='0' data-idx='{{0}}' bind:tap='itemTap'>
+        <view class="cursor" hidden="{{!curItemIdx==0}}"></view>
+        <view class="content">
+            <view class="icon"><image src="../../asset/images/science.png"/></view>
+            <view class="text">科学</view>
+        </view>
+    </view>
+    <view class="bar" hover-class="bar-hover" hover-stay-time='0' data-idx='{{1}}' bind:tap='itemTap'>
+        <view class="cursor" hidden="{{!curItemIdx==1}}"></view>
+        <view class="content">
+            <view class="icon"><image src="../../asset/images/code.png"/></view>
+            <view class="text">程序</view>
+        </view>
+    </view>
+  </view>
+</view>
+
+<view class="sideMenuBtn" bind:tap='menuBtn'>
+    <view class="icon" hover-class="header-icon-hover" hover-stay-time='0'><image src="../../asset/images/menu.png"/></view>
+</view>
