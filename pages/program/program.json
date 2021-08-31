@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "sideMenu":"../../component/sideMenu/sideMenu",
+    "maskModel":"../../component/maskModel/maskModel"
+  }
+}

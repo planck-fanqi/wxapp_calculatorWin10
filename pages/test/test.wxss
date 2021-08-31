@@ -1,0 +1,59 @@
+.body{
+    width: 100vw; height: 100vh;
+    background: white;
+}
+.body image{
+    width: 100%; height: 100%;
+}
+
+
+
+scroll-view{
+    left: 5vw; top: 5vw;
+    width: 90vw; height: 10vh;
+    border: 2rpx solid grey;
+    position: relative;
+}
+.box{
+    height: 9vh;
+    position: absolute;
+    top: .5vh;
+    border: 1rpx solid black;
+    display: flex;
+}
+.block{
+    width: 90vw; height: 9vh;
+    background-color: red;
+}
+.square{
+    width: 90vw; height: 9vh;
+    background-color: yellow;
+}
+.inputModel{
+    width: 100%; height: 100%;
+    position: absolute;
+    z-index: 6;
+}
+.inputModel>.box{
+    width: 80vw; height: 12vw; left: 10vw; top: 20vh;
+    background: #ffffff;
+    display: flex; justify-content: center;
+    border: 0; box-shadow: 0 0 2px 2px #e1e1e1;
+}
+.inputModel>.box textarea{
+    width: 60vw; height: 12vw;
+    margin-left: 2.5vw; margin-right: 2.5vw;
+    line-height: 12vw; font-size: large; font-weight: bold;
+    
+}
+.inputModel>.box>.button{
+    width: 15vw; height: 12vw;
+    display: flex; position: relative; 
+}
+.button-hover{
+    background: #e1e1e1;
+}
+.inputModel>.box>.button image{
+    width: 8vw; height: 8vw; 
+    position: absolute; left: 3.5vw; top: 2vw;
+}

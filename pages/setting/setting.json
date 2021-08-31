@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "sideMenu":"../../component/sideMenu/sideMenu",
+    "rippleCard":"../../component/rippleCard/rippleCard"
+  }
+}

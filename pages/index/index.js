@@ -5,28 +5,29 @@ const app = getApp()
 const log = console.log
 var checker=new Checker()
 var PageWidth,PageHeight
-var variblesDic={Ans:'100.111111',X:'0',Y:'0',A:'0',B:'0',C:'0',D:'0',E:'0',F:'0'}
-var mvX/**/,scrollLeft=0/**/,isCharOut=true,angle=true,history,charWidth=16.494791666666668
-function variblesDic2List(){
-  var ls=[]
-  Object.keys(variblesDic).map(key=>{
-    return {name:key,value:variblesDic[key]}
-  })
-  for(var k in variblesDic) ls.push({ name:k,value:variblesDic[k]})
-  return ls
-}
+var variblesDic={Ans:'0',X:'0',Y:'0',A:'0',B:'0',C:'0',D:'0',E:'0',F:'0'}
+var mvX/**/,scrollLeft=0/**/,angle=true,charWidth=16.494791666666668
+
 Page({
   data: {
     spaceHeight:0,
     answer:'',inputs:'',
     isHistoryShow:false,
-    outClick:true,
+    outClick:true, valsetHide:true, 
     mvOffset:0,autoLeftOffset:0,cursor_offset:0,
     fbtns:null,nbtns:null,
-    varibles:null,curVar:{ key:'Ans',value:'100.111111'}
+    varibles:null,curVar:{ key:'Ans',value:'0'},
+    backgroundImg:null
   },
   //侧边栏隐藏
   pageClick(){ this.setData({outClick:true}) },
+  //弹窗变量赋值
+  valsetbtn(){
+    this.setData({valsetHide:false})
+  },
+  valset(value){
+    this.updateVaribles({value: parseFloat(value.detail)})
+  },
   //函数滑动翻页
   moving:function(e){  mvX=e.detail.x; } ,
   autoMv:function(){
@@ -43,13 +44,19 @@ Page({
     var charCnt=Math.round((.95*PageWidth-e.detail.x+scrollRight)/charWidth)
     this.setData({cursor_offset:charWidth*(this.data.inputs.length-checker.justifyCursorCharcnt(this.data.inputs.length-charCnt))})
   },
-  //
-  button:function(e){
-    function variblesDic2List(){
-      return Object.keys(variblesDic).map(key=>{
-        return {key,value:variblesDic[key]}
-      })
+  //更新变量列表
+  updateVaribles(curVar){
+    if(curVar==undefined)
+      curVar=this.data.curVar
+    else {
+      if(!curVar.key) curVar.key=this.data.curVar.key
+      variblesDic[curVar.key] = curVar.value
     }
+    this.setData({varibles:Object.keys(variblesDic).map(key=>{
+      return {key,value:variblesDic[key]}
+    }),curVar:curVar})
+  },
+  button:function(e){
     var that=this
     function updateCursor(btn){
       if(checker.input(btn))
@@ -60,10 +67,10 @@ Page({
     var btn=e.currentTarget.dataset.info
     if(btn.type=='FUNC'){
       if(btn.value=='=') {
-        variblesDic.Ans=calculate(checker.toString(false),angle,variblesDic)+''
-        this.setData({answer:variblesDic.Ans,
-                      varibles:variblesDic2List(),
-                      curVar:{key:this.data.curVar.key,value:variblesDic[this.data.curVar.key]}})
+        variblesDic.Ans=parseFloat(calculate(checker.toString(false),angle,variblesDic).toPrecision(15))
+        this.setData({answer:variblesDic.Ans})
+        if(this.data.curVar.key=='Ans')
+          this.updateVaribles({value:variblesDic.Ans})
       }
       if(btn.value=='DEL') {
         if(!checker.input(btn))wx.showToast({ title: '算式错误', icon: 'none', duration:300 });
@@ -73,14 +80,21 @@ Page({
         updateCursor(btn)
         this.setData({answer:'0'})
       }
+      if(btn.value=='^2') {
+        if(checker.input({value:'^'   ,type:'op'  ,text:'^'   })) {
+          checker.input({value:'2',type:'num',text:'2'})
+          var res=checker.toString()
+          this.setData({inputs:res})//先刷新文本在移动文本框
+          this.setData({autoLeftOffset:(res.length+1)*charWidth})
+        }
+      }
       if(btn.value=='角度制'||btn.value=='弧度制') {
         angle=!angle;
         this.data.nbtns[3][0]=angle?{value:'角度制',type:'FUNC',text:'角度制'}:{value:'弧度制',type:'FUNC',text:'弧度制'};
         this.setData({nbtns:this.data.nbtns})
       }
       if(btn.value=='保存'){
-        variblesDic[this.data.curVar.key]=this.data.answer;
-        this.setData({varibles:variblesDic2List(),curVar:{key:this.data.curVar.key,value:variblesDic[this.data.curVar.key]}})
+        this.updateVaribles({value:this.data.answer})
       }
     }
     else if(checker.input(btn)){
@@ -89,7 +103,7 @@ Page({
       this.setData({autoLeftOffset:(res.length+1)*charWidth})
     }
     else wx.showToast({ title: '非法输入', icon: 'none', duration:300 });
-    this.setData({varibles:variblesDic2List()})
+    this.updateVaribles()
   },
   //历史记录操作
   historyShow(){
@@ -112,4 +126,9 @@ Page({
       return {key,value:variblesDic[key]}
     })})
   },
+  onShow(){
+    if(app.globalData.backgroundImg!=null && this.data.backgroundImg!=app.globalData.backgroundImg) 
+      this.setData({backgroundImg:app.globalData.backgroundImg})
+    if(this.data.backgroundImg==null) this.setData({backgroundImg:'../../asset/images/back2.jpg'})
+  }
 })

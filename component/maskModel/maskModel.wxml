@@ -1,0 +1,9 @@
+<view class="maskContainer" hidden="{{hidden}}">
+    <view class="mask"></view>
+    <view class="bar">
+        <view class="text">{{text}}</view>
+        <view class="buttonContainer">
+            <view class="button" bindconfirm="comfirm" bind:tap="comfirm" hover-class="button-hover" hover-stay-time="0">确认</view>
+        </view>
+    </view>
+</view>

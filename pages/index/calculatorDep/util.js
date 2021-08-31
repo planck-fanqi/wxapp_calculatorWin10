@@ -9,7 +9,7 @@ var fBtns=[//fucntion buttons
     {value:'cos' ,type:'func',text:'cos' },
     {value:'tan' ,type:'func',text:'tan' },
     {value:'cot' ,type:'func',text:'cot' },
-    {value:'null',type:'null',text:'null'}
+    {value:'('   ,type:'bracket',text:'('},
   ],
   [
     {value:'e'    ,type:'var'    ,text:'e'   },
@@ -21,7 +21,7 @@ var fBtns=[//fucntion buttons
     {value:'acos' ,type:'func'   ,text:'acos' },
     {value:'atan' ,type:'func'   ,text:'atan' },
     {value:'acot' ,type:'func'   ,text:'acot' },
-    {value:'null' ,type:'null'   ,text:'null'}
+    {value:')'    ,type:'bracket',text:')'    },
   ]
 ]
 var nBtns=[//number buttons

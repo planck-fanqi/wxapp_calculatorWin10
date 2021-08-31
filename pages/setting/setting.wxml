@@ -1,0 +1,9 @@
+<view class="nav">
+      <view class="icon"></view>
+      <view class="text">设置</view>
+    </view>
+<view class="container" bind:tap="outTap">
+    <rippleCard bind:tap="tap"/>
+</view>
+
+<sideMenu outClick='{{outClick}}' curItemIdx='{{2}}'/>

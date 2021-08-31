@@ -1,5 +1,5 @@
 <view class="calculator" bind:tap='pageClick'>
-  <image class="bg" src="../../asset/images/back2.jpg" mode='aspectFill'/>
+  <image class="bg" src="{{backgroundImg}}" mode='aspectFill'/>
   <view class="mask"></view>
   <view class="body">
     <view class="nav">
@@ -31,6 +31,9 @@
               <view class="drop-menuItem" wx:for="{{varibles}}" hover-class='drop-item-hover' hover-stay-time='0' data-info='{{item}}' bindtap='historyChoose' bind:longpress="historyInput">{{item.key}}:{{item.value}}</view>
             </view>
           </view>
+          <view class="valSetBar">
+            <view class="valSetBtn" bind:tap="valsetbtn" hover-class='valSetBtn-hover' hover-stay-time='0' ><view class="text">赋值</view></view>
+          </view>
         </view>
     </view>
     <view class="keyboard">
@@ -50,5 +53,6 @@
   </view>
 </view>
 
-<sideMenu outClick='{{outClick}}'/>
+<sideMenu outClick='{{outClick}}'  curItemIdx='{{0}}'/>
+<inputModel bind:param='valset' hide="{{valsetHide}}"></inputModel>
 

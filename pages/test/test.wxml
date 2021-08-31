@@ -1,0 +1,14 @@
+<!-- <view class="body">
+    <image src="../../asset/images/back1.jpg"/>
+    <view class="btn" hover-class="btn-hover" hover-stay-time='0'>123</view>
+</view> -->
+<!-- <view class="inputModel">
+    <view class="box">
+        <textarea></textarea>
+        <view class="button" hover-class="button-hover" hover-stay-time="0"><image src="../../asset/images/回车.png" mode='aspectFit'/></view>
+    </view>
+</view> -->
+<inputModel bind:param='test' hide="{{hide}}"></inputModel>
+<!-- <maskModel text="输入不是一个有效的数字" hide="{{hide}}"/> -->
+<!-- <sideMenu hide='{{hide}}'/>
+<model tap='{{click}}' hidden="{{!model}}"/> -->

@@ -1,0 +1,22 @@
+.nav{
+    width: 100vw; height: 6vh;
+    display: flex;
+  }
+  .nav>.icon{
+    width: 6vh; height: 6vh;
+    position: relative;
+    content: '';
+  }
+  .nav>.text{
+    width: 15%; height: 6vh;
+    font-weight: bold;
+    font-size: 40rpx;
+    line-height: 6vh;
+    text-align: center;
+  }
+.container{
+    width: 100vw; height: 94vh;
+    display: inline; display: flex;
+    align-items: center;
+}
+

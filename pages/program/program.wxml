@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="header"></view>
+  <view class="inputs">
+    <view class="input">
+      <input class="input-blur" placeholder="二进制" auto-focus="{{true}}" />
+    </view>
+    <view class="input">
+      <input class="input-focus" placeholder="十进制" auto-focus="{{true}}" />
+    </view>
+  </view>
+
+  <button bind:tap="confirms">print</button>
+</view>
+<sideMenu outClick='{{outClick}}'  curItemIdx='{{1}}'/>
+<maskModel text="输入不符合规则" hide="{{tipHide}}"/>

@@ -1,8 +1,15 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/setting/setting",
+    "pages/test/test",
+    "pages/logs/logs",
     "component/sideMenu/sideMenu",
-    "component/model/model"
+    "component/model/model",
+    "component/maskModel/maskModel",
+    "component/inputModel/inputModel",
+    "component/rippleCard/rippleCard",
+    "pages/program/program"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -2,6 +2,7 @@
   "usingComponents": {
     "sideMenu":"../../component/sideMenu/sideMenu",
     "inputModel":"../../component/inputModel/inputModel",
+    "maskModel":"../../component/maskModel/maskModel",
     "model":"../../component/model/model"
   }
 }

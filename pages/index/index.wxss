@@ -164,6 +164,30 @@
 .drop-item-hover{
   background: #d2d2d2;
 }
+.valSetBar{
+  width: 25vw; height: 12vw; right: .5vw;
+  position: absolute; z-index: 2;
+  margin-top: .5vw; margin-bottom: .5vw; margin-right: .5vw;
+  display: flex; flex-direction: column;
+}
+.valSetBar>.valSetBtn{
+  width: 23vw; height: 11vw;
+  position: relative; z-index: 4;
+  display: flex; justify-content: center;
+}
+.valSetBtn>.text{
+  width: 23vw; height: 11vw;
+  line-height: 11vw; text-align: center; font-size: large;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap; 
+  font-weight: bold;
+  font-family: consola;
+}
+.valSetBtn-hover{
+  width: 22vw;
+  border: 1rpx solid #636160;
+}
 .keyboard{
   width: 100vw; height: auto;
   position: relative; z-index: 1;

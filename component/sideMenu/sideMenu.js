@@ -2,10 +2,16 @@ const app = getApp()
 var menuShowBtn=false
 Component({
   properties:{
-    outClick:{ type:Boolean,value:true}
+    outClick:{ type:Boolean,value:true},
+    curItemIdx: { type:Number, value: null }
   },
   data:{
-    menuBias:0,menuDur:100,curItemIdx:0
+    urls:[
+      '../../pages/index/index',
+      '../../pages/program/program',
+      '../../pages/setting/setting',
+    ],
+    menuBias:0,menuDur:100
   },
   methods:{
     menuBtn(){
@@ -21,7 +27,7 @@ Component({
     },
     itemTap(e){
       this.menuHidden()
-      this.setData({curItemIdx:e.currentTarget.dataset.idx})
+      wx.redirectTo({url:this.data.urls[e.currentTarget.dataset.idx]})
     }
   },
   observers: {

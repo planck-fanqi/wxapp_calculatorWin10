@@ -1,0 +1,10 @@
+<view class="card" bind:tap="cardTap" hover-class="card-hover" hover-stay-time="0">
+    <view class="content">
+        <view class="icon"><image src="../../asset/images/personality.png" mode="aspectFill"/></view>
+        <view class="text">
+            <view class="title">壁纸</view>
+            <view class="description">个性化</view>
+        </view>
+        <view class="ripple" style="left:{{rippleInfo.x}}px;top:{{rippleInfo.y}}px;" hidden="{{rippleHidden}}"></view>
+    </view>
+</view>

@@ -1,0 +1,29 @@
+.inputModel{
+    width: 100vw; height: 100vh;
+    position: absolute; top: 0; left: 0;
+    z-index: 6;
+}
+.inputModel>.box{
+    width: 80vw; height: 12vw; 
+    position: absolute; left: 10vw; top: 20vh;
+    background: #ffffff;
+    display: flex; justify-content: center;
+    border: 0; box-shadow: 0 0 2px 2px #e1e1e1;
+}
+.inputModel>.box textarea{
+    width: 60vw; height: 12vw;
+    margin-left: 2.5vw; margin-right: 2.5vw;
+    line-height: 12vw; font-size: large; font-weight: bold;
+    
+}
+.inputModel>.box>.button{
+    width: 15vw; height: 12vw;
+    display: flex; position: relative; 
+}
+.button-hover{
+    background: #e1e1e1;
+}
+.inputModel>.box>.button image{
+    width: 8vw; height: 8vw; 
+    position: absolute; left: 3.5vw; top: 2vw;
+}
